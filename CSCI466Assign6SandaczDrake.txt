@@ -1,0 +1,65 @@
+-- Question 1
+DROP TABLE IF EXISTS Dog;
+DROP TABLE IF EXISTS Visit;
+
+-- Question 2
+CREATE TABLE Dog (dog_id int NOT NULL AUTO_INCREMENT, breed varchar(255) NOT NULL, 
+name varchar(255) NOT NULL, weight int NOT NULL, PRIMARY KEY(dog_id));
+
+-- Question 3
+INSERT INTO Dog (breed, name, weight) values ("pitbull", "bruce", 62);
+INSERT INTO Dog (breed, name, weight) values ("canecorso", "carso", 78);
+INSERT INTO Dog (breed, name, weight) values ("husky", "alex", 58);
+INSERT INTO Dog (breed, name, weight) values ("poodle", "steve", 40);
+INSERT INTO Dog (breed, name, weight) values ("doberman", "autumn", 75);
+INSERT INTO Dog (breed, name, weight) values ("shibainu", "trinity", 36);
+
+-- Question 4
+DESCRIBE Dog;
+
+
+-- Question 5
+SELECT * FROM dogs;
+
+-- Question 6
+CREATE TABLE Visit (visit_id int NOT NULL AUTO_INCREMENT, 
+dog_id int NOT NULL, visit_date DATE NOT NULL, 
+PRIMARY KEY(visit_id), FOREIGN KEY (dog_id) REFERENCES dogs(dog_id));
+
+-- Question 7
+INSERT INTO Visit (dog_id, visit_date) values (1, "03/24/1998");
+INSERT INTO Visit (dog_id, visit_date) values (1, "03/24/1999");
+INSERT INTO Visit (dog_id, visit_date) values (2, "03/24/2000");
+INSERT INTO Visit (dog_id, visit_date) values (2, "03/24/2001");
+INSERT INTO Visit (dog_id, visit_date) values (3, "03/24/2002");
+INSERT INTO Visit (dog_id, visit_date) values (3, "03/24/2003");
+INSERT INTO Visit (dog_id, visit_date) values (4, "03/24/2004");
+INSERT INTO Visit (dog_id, visit_date) values (5, "03/24/2005");
+INSERT INTO Visit (dog_id, visit_date) values (5, "03/24/2006");
+INSERT INTO Visit (dog_id, visit_date) values (4, "03/24/2007");
+
+-- Question 8
+DESCRIBE Visit;
+
+-- Question 9
+SELECT * FROM Visit;
+
+-- Question 10
+ALTER TABLE Visit ADD visit_time TIME;
+
+
+-- Question 11
+UPDATE Visit set visit_time = curtime() WHERE visit_id = 1;
+UPDATE Visit set visit_time = curtime() WHERE visit_id = 2;
+UPDATE Visit set visit_time = curtime() WHERE visit_id = 3;
+UPDATE Visit set visit_time = curtime() WHERE visit_id = 4;
+UPDATE Visit set visit_time = curtime() WHERE visit_id = 5;
+UPDATE Visit set visit_time = curtime() WHERE visit_id = 6;
+UPDATE Visit set visit_time = curtime() WHERE visit_id = 7;
+UPDATE Visit set visit_time = curtime() WHERE visit_id = 8;
+UPDATE Visit set visit_time = curtime() WHERE visit_id = 9;
+UPDATE Visit set visit_time = curtime() WHERE visit_id = 10;
+
+-- Question 12
+
+SELECT * FROM Visit;
