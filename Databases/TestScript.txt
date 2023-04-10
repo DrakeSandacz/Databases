@@ -1,0 +1,33 @@
+USE BabyName;
+
+SHOW TABLES;
+
+SELECT DISTINCT name FROM BabyName where year ='1997' LIMIT 50;
+
+
+SHOW COLUMNS FROM BabyName;
+
+
+SELECT DISTINCT year FROM BabyName WHERE name='Drake' LIMIT 50;
+
+SELECT place, COUNT(name) FROM BabyName GROUP BY place;
+
+SELECT name,gender,count(*) as number FROM BabyName WHERE year = '1983' AND gender = 'M'
+
+GROUP BY name,gender ORDER BY number DESC LIMIT 1);
+
+UNION ALL(SELECT name,gender,count(*) as number FROM BabyName WHERE year = '1983' AND gender = 'F';
+
+GROUP BY name,gender ORDER BY number DESC LIMIT 1);
+
+SELECT name,COUNT(name),year From BabyName WHERE name='Drake' GROUP BY year ORDER BY year; 
+
+SELECT COUNT(*) FROM BabyName;
+
+
+SELECT COUNT(name),gender FROM BabyName where year='1972' GROUP BY gender;
+
+
+SELECT COUNT(name) from BabyName WHERE year='1974';
+
+ 	

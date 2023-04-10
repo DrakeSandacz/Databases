@@ -1,0 +1,36 @@
+/* Drake Sandacz, Z1798198, CSCI 466PEI, Assign 7 */
+// Use BabyName database
+USE BabyName
+
+
+SHOW TABLES
+// Shows all tables in database
+SELECT DISTINCT name FROM BabyName where year ='1997' LIMIT 50
+// Shows all names from the table BabyName with given birth year, sets lim to 50.
+
+SHOW COLUMNS FROM BabyName
+// Shows columns and tables
+
+SELECT DISTINCT year FROM BabyName WHERE name='Drake' LIMIT 50
+// Shows distinct years where name = Drake, limit set to 50 as well. 
+
+SELECT place, COUNT(name) FROM BabyName GROUP BY place
+// Show different names for each of the places
+
+SELECT name,gender,count(*) as number FROM BabyName WHERE year = '1983' AND gender = 'M'
+
+GROUP BY name,gender ORDER BY number DESC LIMIT 1)
+
+UNION ALL(SELECT name,gender,count(*) as number FROM BabyName WHERE year = '1983' AND gender = 'F'
+
+GROUP BY name,gender ORDER BY number DESC LIMIT 1);
+SELECT name,COUNT(name),year From BabyName WHERE name='Drake' GROUP BY year ORDER BY year 
+// Show name and its count for the years
+
+SELECT COUNT(*) FROM BabyName
+// Get the rows and total how many there are in table.
+
+SELECT COUNT(name),gender FROM BabyName where year='1972' GROUP BY gender
+// Show how many names there are for each gender in year 1972.
+SELECT COUNT(name) from BabyName WHERE year='1974'
+// Show how many names were in the year 1974.
